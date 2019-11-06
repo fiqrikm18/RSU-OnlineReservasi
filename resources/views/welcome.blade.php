@@ -1,7 +1,7 @@
 @extends("layouts.app")
 
 @section("title")
-Selamat Datang | Reservasi Online
+Selamat Datang
 @endsection
 
 @section("content")
