@@ -18,6 +18,10 @@ footer {
   margin-right: 130px;
 }
 
+#register-div {
+  width: 70%;
+}
+
 .card {
   border-radius: 0;
   box-shadow: 0.5px 0.5px 1.5px 0.5px #ccc;
@@ -30,4 +34,5 @@ footer {
 
 .btn {
   border-radius: 0;
+  box-shadow: 0.5px 0.5px 1.5px 0.5px #ccc;
 }

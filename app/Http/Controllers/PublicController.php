@@ -26,10 +26,24 @@ class PublicController extends Controller
     }
 
     public function jadwal() {
-        return view('jadwal');
+      $listJadwal = DB::table("jadwal")
+                    ->select(DB::raw("poliklinik.namaPoli as poli, dokter.namaDokter as dokter, group_concat(jadwal.jam SEPARATOR ', ') as jam, group_concat(jadwal.hari SEPARATOR ', ') as hari"))
+                    ->join("dokter", "dokter.kodeDokter", '=', "jadwal.dokter")
+                    ->join("poliklinik", "dokter.poli", '=', "poliklinik.noPoli")
+                    ->groupBy("jadwal.dokter")
+                    ->paginate(25);
+
+      $countJadwal = DB::table("jadwal")
+                    ->count();
+
+      return view('jadwal')->with(compact("listJadwal", 'countJadwal'));
     }
 
     public function registerAntrian() {
         return view('antrian');
+    }
+
+    public function storeRegister(Request $request) {
+      // TODO:   add logic for save data here
     }
 }
