@@ -11,10 +11,12 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get("/", "PublicController@index")->name("index");
+Route::get("/profile", "PublicController@profile")->name("profile");
+Route::get("/poliklinik", "PublicController@poliklinik")->name("poliklinik");
+Route::get("/jadwal-dokter", "PublicController@jadwal")->name("jadwal");
+Route::get("/daftar-antrian", "PublicController@registerAntrian")->name("daftarAntri");

@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="{{ url('image/icon.ico') }}">
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -20,50 +22,51 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/custom.css') }}" rel="stylesheet">
 </head>
+
 <body>
     <div id="app">
-      <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
-          <div class="container">
-              <a class="navbar-brand" href="{{ url('/') }}">
-                  <img src="{{ url('image/logo.png') }}" alt="logo_rs" width="50" height="50"/>
-                  Rumah Sakit Muhammadiyah Bandung
-              </a>
-              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                  <span class="navbar-toggler-icon"></span>
-              </button>
+        <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
+            <div class="container">
+                <a class="navbar-brand" href="{{ url('/') }}">
+                    <img src="{{ url('image/logo.png') }}" alt="logo_rs" width="50" height="50" />
+                    Rumah Sakit Muhammadiyah Bandung
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
 
-              <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                  <!-- Left Side Of Navbar -->
-                  <ul class="navbar-nav mr-auto">
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <!-- Left Side Of Navbar -->
+                    <ul class="navbar-nav mr-auto">
 
-                  </ul>
+                    </ul>
 
-                  <!-- Right Side Of Navbar -->
-                  <ul class="navbar-nav ml-auto">
-                      <!-- Authentication Links -->
-                      <li class="nav-item">
-                        <a href="{{ url('/') }}" class="nav-link">Beranda</a>
-                      </li>
-                      <li class="nav-item">
-                        <a href="#" class="nav-link">Profil</a>
-                      </li>
-                      <li class="nav-item">
-                        <a href="#" class="nav-link">Poliklinik</a>
-                      </li>
-                      <li class="nav-item">
-                        <a href="#" class="nav-link">Jadwal Dokter</a>
-                      </li>
-                      <li class="nav-item">
-                        <a href="#" class="nav-link">Daftar Antrian</a>
-                      </li>
-                  </ul>
-              </div>
-          </div>
-      </nav>
+                    <!-- Right Side Of Navbar -->
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="{{ url('/') }}" class="nav-link">Beranda</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ url('/profile') }}" class="nav-link">Profil</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ url('/poliklinik') }}" class="nav-link">Poliklinik</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ url('/jadwal-dokter') }}" class="nav-link">Jadwal Dokter</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ url('/daftar-antrian') }}" class="nav-link">Daftar Antrian</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
 
         <main class="py-4" id="content">
             @yield('content')
         </main>
     </div>
 </body>
+
 </html>
