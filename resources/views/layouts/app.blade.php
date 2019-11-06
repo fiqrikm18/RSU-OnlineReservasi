@@ -67,9 +67,22 @@
             @yield('content')
         </main>
 
-        <footer class="footer mt-auto py-3">
-            <div class="container">
-                <span class="text-muted">Place sticky footer content here.</span>
+        <footer class="footer mt-auto py-3 cust-footer">
+            <div class="container" style="color:white">
+                <div class="row">
+                    <div class="col">
+                        <p>Alamat<br />Jl. K.H. Ahmad Dahlan No.53, Turangga, Kec. Lengkong, Kota Bandung, Jawa Barat 40264</p>
+                    </div>
+
+                    <div class="col">
+                        <p>Telpon:<br />022-7301062</p>
+                        <p>Email:<br />kontak@rsmb.co.id</p>
+                    </div>
+                </div>
+
+                <div class="row" style="margin-top: 20px">
+                    <span>Rumah Sakit Muhammadiyah Bandung</span>
+                </div>
             </div>
         </footer>
     </div>
