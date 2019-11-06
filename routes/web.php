@@ -13,6 +13,8 @@
 
 Auth::routes();
 
+Route::get("/admin", "AdminController@index")->name("admin");
+
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get("/", "PublicController@index")->name("index");
