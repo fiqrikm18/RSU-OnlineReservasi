@@ -17,26 +17,26 @@ class PublicController extends Controller
 
     public function poliklinik() {
         $listPoli = DB::table("dokter")
-                    ->join("poliklinik", "dokter.poli", '=', "poliklinik.noPoli")
-                    ->orderBy("poliklinik.noPoli", "ASC")
-                    ->select()
-                    ->paginate(25);
+        ->join("poliklinik", "dokter.poli", '=', "poliklinik.noPoli")
+        ->orderBy("poliklinik.noPoli", "ASC")
+        ->select()
+        ->paginate(25);
         $countPoli = DB::table("dokter")->count();
         return view('poliklinik')->with(compact("listPoli", "countPoli"));
     }
 
     public function jadwal() {
-      $listJadwal = DB::table("jadwal")
-                    ->select(DB::raw("poliklinik.namaPoli as poli, dokter.namaDokter as dokter, group_concat(jadwal.jam SEPARATOR ', ') as jam, group_concat(jadwal.hari SEPARATOR ', ') as hari"))
-                    ->join("dokter", "dokter.kodeDokter", '=', "jadwal.dokter")
-                    ->join("poliklinik", "dokter.poli", '=', "poliklinik.noPoli")
-                    ->groupBy("jadwal.dokter")
-                    ->paginate(25);
+        $listJadwal = DB::table("jadwal")
+        ->select(DB::raw("poliklinik.namaPoli as poli, dokter.namaDokter as dokter, group_concat(jadwal.jam SEPARATOR ', ') as jam, group_concat(jadwal.hari SEPARATOR ', ') as hari"))
+        ->join("dokter", "dokter.kodeDokter", '=', "jadwal.dokter")
+        ->join("poliklinik", "dokter.poli", '=', "poliklinik.noPoli")
+        ->groupBy("jadwal.dokter")
+        ->paginate(25);
 
-      $countJadwal = DB::table("jadwal")
-                    ->count();
+        $countJadwal = DB::table("jadwal")
+        ->count();
 
-      return view('jadwal')->with(compact("listJadwal", 'countJadwal'));
+        return view('jadwal')->with(compact("listJadwal", 'countJadwal'));
     }
 
     public function registerAntrian() {
@@ -44,6 +44,6 @@ class PublicController extends Controller
     }
 
     public function storeRegister(Request $request) {
-      // TODO:   add logic for save data here
+        // TODO:   add logic for save data here
     }
 }
