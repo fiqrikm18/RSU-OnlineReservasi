@@ -1,9 +1,9 @@
 @extends("layouts.admin_app")
 
 @section("title")
-Hello, {{ Auth::user()->username }}
+Selamat Datang
 @endsection
 
 @section("content")
-index admin
+laporan admin
 @endsection

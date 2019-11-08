@@ -85,8 +85,8 @@ Online Reservasi
                     <input id="datepicker" type="date" class="form-control" style="width: 276px" />
                 </div>
 
-                <button type="submit" class="btn btn-primary float-right" style="margin: 10px">Submit</button>
-                <a href="{{ URL::previous() }}" class="btn btn-danger float-right" style="margin: 10px">Cancel</a>
+                <button type="submit" class="btn btn-primary float-right" style="margin: 10px">Simpan</button>
+                <a href="{{ URL::previous() }}" class="btn btn-danger float-right" style="margin: 10px">Batal</a>
             </form>
         </div>
     </div>

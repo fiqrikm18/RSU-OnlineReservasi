@@ -9,10 +9,12 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>@yield("title") | Admin Page</title>
+    <title>@yield("title") | Reservasi Online</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="https://use.fontawesome.com/555fe8142d.js"></script>
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -29,12 +31,8 @@
 
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
+        <nav class="navbar navbar-expand-md navbar-light sticky-top navbar-laravel">
             <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    <img src="{{ url('image/logo.png') }}" alt="logo_rs" width="50" height="50" />
-                    Rumah Sakit Muhammadiyah Bandung
-                </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -42,36 +40,53 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
-
+                        <li class="nav-item">
+                            <a href="{{ url('admin/') }}" class="nav-link">Beranda</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ url('admin/poliklinik') }}" class="nav-link">Poliklinik</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ url('admin/jadwal') }}" class="nav-link">Jadwal Dokter</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="{{ url('admin/laporan') }}" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Laporan
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="#">Laporan Periode</a>
+                                <a class="dropdown-item" href="#">Laporan Pasien</a>
+                                <a class="dropdown-item" href="#">Laporan Dokter</a>
+                                <a class="dropdown-item" href="#">Laporan Poliklinik</a>
+                                <a class="dropdown-item" href="#">Laporan Penjamin</a>
+                            </div>
+                        </li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item">
-                            <a href="{{ url('/') }}" class="nav-link">Beranda</a>
+                            <p class="nav-link" style="margin-right: 25px">Hello, {{ Auth::user()->username }}</p>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ url('/profile') }}" class="nav-link">Profil</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="{{ url('/poliklinik') }}" class="nav-link">Poliklinik</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="{{ url('/jadwal-dokter') }}" class="nav-link">Jadwal Dokter</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="{{ url('/daftar-antrian') }}" class="nav-link">Daftar Antrian</a>
+                            <a class="btn btn-outline-secondary" id="no_shadow" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                                                             document.getElementById('logout-form').submit();">
+                                {{ __('Logout') }}
+                            </a>
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                @csrf
+                            </form>
                         </li>
                     </ul>
                 </div>
             </div>
         </nav>
 
-        <main class="py-4">
+        <main class="py-4" id="content">
             @yield('content')
         </main>
 
-        <footer class="footer mt-auto py-3 cust-footer">
+        <footer class="footer mt-auto py-3 cust-footer" style="margin-top: 20px">
             <div class="container" style="color:white">
                 <div class="row">
                     <div class="col">
@@ -93,7 +108,7 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-</script>
+    </script>
 </body>
 
 </html>

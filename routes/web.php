@@ -14,6 +14,9 @@
 Auth::routes();
 
 Route::get("/admin", "AdminController@index")->name("admin");
+Route::get("/admin/poliklinik", "AdminController@poliklinik")->name("admin_poli");
+Route::get("/admin/jadwal", "AdminController@jadwal")->name("admin_jadwal");
+Route::get("/admin/laporan", "AdminController@laporan")->name("admin_laporan");
 
 Route::get('/home', 'HomeController@index')->name('home');
 

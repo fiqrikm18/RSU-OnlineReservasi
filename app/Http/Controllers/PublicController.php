@@ -33,8 +33,7 @@ class PublicController extends Controller
                     ->groupBy("jadwal.dokter")
                     ->paginate(25);
 
-        $countJadwal = DB::table("jadwal")
-        ->count();
+        $countJadwal = DB::table("jadwal")->count();
 
         return view('jadwal')->with(compact("listJadwal", 'countJadwal'));
     }
