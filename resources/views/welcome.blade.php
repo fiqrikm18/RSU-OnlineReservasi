@@ -57,12 +57,6 @@ Selamat Datang
                   <button type="submit" class="btn btn-primary">
                       {{ __('Login') }}
                   </button>
-
-                  @if (Route::has('password.request'))
-                      <a style="margin-left:10px" href="{{ route('password.request') }}">
-                          {{ __('Forgot Your Password?') }}
-                      </a>
-                  @endif
               </div>
           </div>
         </form>

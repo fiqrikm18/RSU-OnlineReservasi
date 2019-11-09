@@ -5,10 +5,17 @@ Selamat Datang
 @endsection
 
 @section("content")
+
+@if(\Session::has("messages"))
+<div class="alert alert-success alert-dismissible">
+    {!! \Session::get('messages') !!}
+</div>
+@endif
+
 <div class="card">
     <div class="card-body">
         <div class="d-flex">
-            <a href="#" class="btn btn-outline-primary ml-auto p-2" id="no_shadow"><span class="fa fa-plus"></span> Tambah Jadwal</a>
+            <a href="{{ route('new.jadwal') }}" class="btn btn-outline-primary ml-auto p-2" id="no_shadow"><span class="fa fa-plus"></span> Tambah Jadwal</a>
         </div>
 
         <div>
@@ -39,7 +46,7 @@ Selamat Datang
                         <td style="text-align:center">
                             <div>
                                 <a href="#" class="btn btn-outline-success btn-sm" id="no_shadow">Edit</a>
-                                <a href="#" class="btn btn-outline-danger btn-sm" id="no_shadow">Delete</a>
+                                <a href="{{ route('delete.jadwal', $poli->id ) }}" onclick="return confirm('Apakah anda yakin ingin menghapus data?')" class="btn btn-outline-danger btn-sm" id="no_shadow">Delete</a>
                             </div>
                         </td>
                     </tr>

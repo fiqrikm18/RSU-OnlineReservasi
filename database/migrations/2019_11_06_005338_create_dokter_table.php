@@ -16,7 +16,7 @@ class CreateDokterTable extends Migration
         Schema::create('dokter', function (Blueprint $table) {
             $table->string('kodeDokter', 10)->index();
             $table->string("namaDokter", 30);
-            $table->integer("poli")->references("noPoli")->on("poliklinik");
+            $table->integer("poli")->references("noPoli")->on("poliklinik")->onDelete("cascade");
             $table->string("status", 15);
             $table->timestamps();
         });

@@ -5,14 +5,21 @@ Selamat Datang
 @endsection
 
 @section("content")
+
+@if(\Session::has("messages"))
+<div class="alert alert-success alert-dismissible">
+    {!! \Session::get('messages') !!}
+</div>
+@endif
+
 <div class="card">
     <div class="card-body">
         <div class="d-flex">
-            <a href="#" class="btn btn-outline-primary ml-auto p-2" id="no_shadow"><span class="fa fa-plus"></span> Tambah Poli</a>
+            <a href="{{ route('new.poli') }}" class="btn btn-outline-primary ml-auto p-2" id="no_shadow"><span class="fa fa-plus"></span> Tambah Poli</a>
         </div>
 
         <div>
-            <h3 style="text-align: center;">Datfar Poliklinik</h3>
+            <h3 style="text-align: center;">Daftar Poliklinik</h3>
         </div>
         <br />
 
@@ -33,11 +40,11 @@ Selamat Datang
                         <td>{{ $index+1 }}</td>
                         <td>{{ $poli->noPoli }}</td>
                         <td>{{ $poli->namaPoli }}</td>
-                        <td>{{ $poli->namaDokter }}</td>
+                        <td>{{ $poli->namaDokter == "" ? "-" : $poli->namaDokter }}</td>
                         <td style="text-align:center">
                             <div>
-                                <a href="#" class="btn btn-outline-success btn-sm" id="no_shadow">Edit</a>
-                                <a href="#" class="btn btn-outline-danger btn-sm" id="no_shadow">Delete</a>
+                                <a href="#" class="btn btn-outline-success btn-sm" id="no_shadow"><span class="fa fa-pencil"></span> Edit</a>
+                                <a href="{{ route('delete.poli', $poli->noPoli) }}" class="btn btn-outline-danger btn-sm" id="no_shadow" onclick="return confirm('Apakah anda yakin ingin menghapus data?')"><span class="fa fa-trash"></span> Delete</a>
                             </div>
                         </td>
                     </tr>
@@ -50,11 +57,11 @@ Selamat Datang
                     {{ $listPoli->links() }}
                 </ul>
             </nav>
-
-            <div class="justify-content-center">
-                <p>Jumlah Poliklinik: {{ $countPoli }} | Jumlah Dokter: {{ $countDokter }}</p>
-            </div>
         </div>
     </div>
 </div>
+
+<script type="text/javascript">
+$(".alert").alert('close');
+</script>
 @endsection
