@@ -14,7 +14,7 @@ class CreatePoliklinikTable extends Migration
     public function up()
     {
         Schema::create('poliklinik', function (Blueprint $table) {
-            $table->increments('noPoli');
+            $table->string('noPoli');
             $table->string("namaPoli");
             $table->timestamps();
         });

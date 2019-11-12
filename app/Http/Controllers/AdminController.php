@@ -18,4 +18,6 @@ class AdminController extends Controller
     public function laporan() {
         return view("admin.laporan");
     }
+
+    
 }

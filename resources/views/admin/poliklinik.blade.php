@@ -43,7 +43,7 @@ Selamat Datang
                         <td>{{ $poli->namaDokter == "" ? "-" : $poli->namaDokter }}</td>
                         <td style="text-align:center">
                             <div>
-                                <a href="#" class="btn btn-outline-success btn-sm" id="no_shadow"><span class="fa fa-pencil"></span> Edit</a>
+                                <a href="{{ route('edit.poli', $poli->noPoli) }}" class="btn btn-outline-success btn-sm" id="no_shadow"><span class="fa fa-pencil"></span> Edit</a>
                                 <a href="{{ route('delete.poli', $poli->noPoli) }}" class="btn btn-outline-danger btn-sm" id="no_shadow" onclick="return confirm('Apakah anda yakin ingin menghapus data?')"><span class="fa fa-trash"></span> Delete</a>
                             </div>
                         </td>
