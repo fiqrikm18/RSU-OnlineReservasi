@@ -1,9 +1,11 @@
 @extends("layouts.admin_app")
 
 @section("title")
-Selamat Datang
+Tambah Jadwal Dokter
 @endsection
 
 @section("content")
-
+<div class="container">
+    
+</div>
 @endsection
