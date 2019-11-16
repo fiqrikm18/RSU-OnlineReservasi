@@ -45,7 +45,7 @@ Selamat Datang
                         <td>{{ $poli->jam }}</td>
                         <td style="text-align:center">
                             <div>
-                                <a href="#" class="btn btn-outline-success btn-sm" id="no_shadow"><span class="fa fa-pencil"></span> Edit</a>
+                                <a href="{{ route('edit.jadwal', $poli->id) }}" class="btn btn-outline-success btn-sm" id="no_shadow"><span class="fa fa-pencil"></span> Edit</a>
                                 <a href="{{ route('delete.jadwal', $poli->id ) }}" onclick="return confirm('Apakah anda yakin ingin menghapus data?')" class="btn btn-outline-danger btn-sm" id="no_shadow"><span class="fa fa-trash"></span> Delete</a>
                             </div>
                         </td>

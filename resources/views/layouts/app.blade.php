@@ -62,7 +62,7 @@
                             <a href="{{ url('/jadwal-dokter') }}" class="nav-link">Jadwal Dokter</a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ url('/daftar-antrian') }}" class="nav-link">Daftar Antrian</a>
+                            <a href="{{ url('/antrian') }}" class="nav-link">Daftar Antrian</a>
                         </li>
                     </ul>
                 </div>
