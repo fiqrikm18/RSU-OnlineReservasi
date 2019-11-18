@@ -51,3 +51,4 @@ Route::get("/poliklinik", "PublicController@poliklinik")->name("poliklinik");
 Route::get("/jadwal-dokter", "PublicController@jadwal")->name("jadwal");
 Route::get("/antrian", "PublicController@antrian")->name("antrian");
 Route::get("/daftar-antrian", "PublicController@registerAntrian")->name("daftarAntri");
+Route::post("/daftar-antrian", "PublicController@storeAntrian")->name("store.antrian");

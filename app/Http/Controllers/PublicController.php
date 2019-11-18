@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use DB;
+use Validator;
+use App\Pasien;
+use App\Antrian;
 
 class PublicController extends Controller
 {
@@ -47,7 +50,23 @@ class PublicController extends Controller
         return view('form_antrian')->with(compact("listDokter", "listPoli"));
     }
 
-    public function storeRegister(Request $request) {
-        // TODO:   add logic for save data here
+    public function storeAntrian(Request $request) {
+        $validator = Validator::make($request->all(), [
+            "noKartu" => "required",
+            "namaPasien" => "required",
+            "tempatLahir" => "required",
+            "tglLahir" => "required",
+            "alamat" => "required",
+            "noTelp" => "required",
+            "jKelamin" => "required",
+            "poli" => "required",
+            "dokter" => "required",
+            "penjamin" => "required",
+            "tglBerobat" => "required",
+        ]);
+
+        if ($validator->fails()) {
+            return back()->withErrors($validator)->withInput();
+        }
     }
 }

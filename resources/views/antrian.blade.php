@@ -16,10 +16,11 @@ Daftar Antrian
         <table class="table table-striped">
                 <thead>
                   <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">First</th>
-                    <th scope="col">Last</th>
-                    <th scope="col">Handle</th>
+                    <th scope="col">No. Antrian</th>
+                    <th scope="col">Tanggal</th>
+                    <th scope="col">Nama Pasien</th>
+                    <th scope="col">Poliklinik</th>
+                    <th scope="col">Nama Dokter</th>
                   </tr>
                 </thead>
                 <tbody>
