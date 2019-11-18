@@ -5,7 +5,7 @@ Daftar Poliklinik
 @endsection
 
 @section("content")
-<div class="container">
+<div class="container" style="width: 800px">
     <div class="card">
         <div class="card-body">
             <h2 style="text-align:center; margin:20px">Daftar Poliklinik</h2>
