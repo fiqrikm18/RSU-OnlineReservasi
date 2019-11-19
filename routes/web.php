@@ -60,9 +60,27 @@ Route::get("/admin/laporan/periode/cari", "AdminController@periodeSrc")->name("l
 Route::get("/admin/laporan/pasien/", "AdminController@laporanPasien")->name("laporan_pasien");
 Route::get("/admin/laporan/pasien/cari", "AdminController@pasienSrc")->name("laporan_pasien_cari");
 
+Route::get("/admin/laporan/dokter/", "AdminController@laporanDokter")->name("laporan_dokter");
+Route::get("/admin/laporan/dokter/cari", "AdminController@dokterSrc")->name("laporan_dokter_cari");
+
+Route::get("/admin/laporan/poliklinik/", "AdminController@laporanPoliklinik")->name("laporan_poliklinik");
+Route::get("/admin/laporan/poliklinik/cari", "AdminController@poliklinikSrc")->name("laporan_poliklinik_cari");
+
+Route::get("/admin/laporan/penjamin/", "AdminController@laporanPenjamin")->name("laporan_penjamin");
+Route::get("/admin/laporan/penjamin/cari", "AdminController@penjaminSrc")->name("laporan_penjamin_cari");
+
 // export
 Route::get("/export/laporan/periode/excel", "AdminController@exportLaporanPeriode")->name("export_perioder_excel");
 Route::get("/export/laporan/periode/pdf", "AdminController@exportLaporanPeriodePDF")->name("export_perioder_pdf");
 
-Route::get("/export/laporan/pasien/excel", "AdminController@exportLaporanPasien")->name("export_paien_excel");
-Route::get("/export/laporan/pasien/pdf", "AdminController@exportLaporanPasienPDF")->name("export_paien_pdf");
+Route::get("/export/laporan/pasien/excel", "AdminController@exportLaporanPasien")->name("export_pasien_excel");
+Route::get("/export/laporan/pasien/pdf", "AdminController@exportLaporanPasienPDF")->name("export_pasien_pdf");
+
+Route::get("/export/laporan/dokter/excel", "AdminController@exportLaporanDokter")->name("export_dokter_excel");
+Route::get("/export/laporan/dokter/pdf", "AdminController@exportLaporanDokterPDF")->name("export_dokter_pdf");
+
+Route::get("/export/laporan/poliklinik/excel", "AdminController@exportLaporanPoliklinik")->name("export_poliklinik_excel");
+Route::get("/export/laporan/poliklinik/pdf", "AdminController@exportLaporanPoliklinikPDF")->name("export_poliklinik_pdf");
+
+Route::get("/export/laporan/penjamin/excel", "AdminController@exportLaporanPenjamin")->name("export_penjamin_excel");
+Route::get("/export/laporan/penjamin/pdf", "AdminController@exportLaporanPenjaminPDF")->name("export_penjamin_pdf");

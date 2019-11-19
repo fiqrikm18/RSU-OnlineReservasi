@@ -1,20 +1,20 @@
 @extends("layouts.admin_app")
 
 @section("title")
-Laporan Pasien
+Laporan Poliklinik
 @endsection
 
 @section("content")
 <div class="container" style="width:800px">
     <div class="card">
         <div class="card-body">
-            <h4 style="text-align:center">Laporan Pasien</h4>
+            <h4 style="text-align:center">Laporan Poliklinik</h4>
             <hr>
             
-            <form action="{{ route('laporan_pasien_cari') }}" class="form-inline" method="GET">
+            <form action="{{ route('laporan_poliklinik_cari') }}" class="form-inline" method="GET">
                 <div class="float-left" style="margin-right: 20px">
                     <input id="datepicker" style="width: 180px; margin-right: 10px" type="input" class="form-control"
-                        name="nama" placeholder="Nama Pasien"/>
+                        name="poli" placeholder="Poliklinik"/>
                     <button type="submit" class="btn btn-outline-secondary"><span class="fa fa-search"></span>
                         Cari</button>
                 </div>
@@ -22,30 +22,28 @@ Laporan Pasien
                     class="fa fa-search"></span> Cari</a> --}}
 
                 <div class="justify-content-right">
-                    <a href="{{ route('export_pasien_excel')."?nama=".Request::get("nama") }}" class="btn btn-outline-secondary" style="margin-right: 3px">Excel</a>
-                    <a href="{{ route('export_pasien_pdf')."?nama=".Request::get("nama") }}" class="btn btn-outline-secondary" style="margin-right: 3px">PDF</a>
+                    <a href="{{ route('export_poliklinik_excel')."?poli=".Request::get("poli") }}" class="btn btn-outline-secondary" style="margin-right: 3px">Excel</a>
+                    <a href="{{ route('export_poliklinik_pdf')."?poli=".Request::get("poli") }}" class="btn btn-outline-secondary" style="margin-right: 3px">PDF</a>
                     <a href="#" class="btn btn-outline-secondary" style="margin-right: 3px">Print</a>
                 </div><br /><br /><br />
             </form>
 
             <table class="table table-striped" style="margin-top: 25px">
                 <thead>
-                    <th style="text-align:center">No.</th>
-                    <th style="text-align:center">Nama Pasien</th>
-                    <th style="text-align:center">Poliklinik</th>
-                    <th style="text-align:center">Dokter</th>
-                    <th style="text-align:center">Tanggal</th>
-                    <th style="text-align:center">Penjamin</th>
+                    <th>No.</th>
+                    <th>Poliklinik</th>
+                    <th>Dokter</th>
+                    <th>Nama Pasien</th>
+                    <th>Tanggal</th>
                 </thead>
                 <tbody>
                     @foreach ($data as $index=>$d)
                     <tr>
-                        <td style="text-align:center">{{ $index+1 }}</td>
-                        <td style="text-align:center">{{ $d->nama }}</td>
-                        <td style="text-align:center">{{ $d->namaPoli }}</td>
-                        <td style="text-align:center">{{ $d->namaDokter }}</td>
-                        <td style="text-align:center">{{Carbon::parse($d->tanggalKunjungan)->format("d M Y")}}</td>
-                        <td style="text-align:center">{{ $d->penjamin }}</td>
+                        <td>{{ $index+1 }}</td>
+                        <td>{{ $d->namaPoli }}</td>
+                        <td>{{ $d->namaDokter }}</td>
+                        <td>dr. {{ $d->nama }}</td>
+                        <td>{{Carbon::parse($d->tanggalKunjungan)->format("d M Y")}}</td>
                     </tr>
                     @endforeach
                 </tbody>

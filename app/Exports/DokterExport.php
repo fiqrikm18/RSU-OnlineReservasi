@@ -9,27 +9,26 @@ use DB;
 
 use Maatwebsite\Excel\Concerns\FromCollection;
 
-class LaporanExport implements FromView
+class DokterExport implements FromView
 {
     use Exportable;
 
-    public function __construct($dateFrom, $dateTo)
+    public function __construct($name)
     {
-        $this->dataFrom = $dateFrom;
-        $this->dataTo = $dateTo;
+        $this->name = $name;
     }
 
     public function view() : View
     {
-        if($this->dataFrom != null & $this->dataTo != null) {
+        if($this->name != null) {
             $data = DB::table("antrian")
                 ->leftJoin("poliklinik", "poliklinik.noPoli", '=', "antrian.poli")
                 ->leftJoin("dokter", "dokter.kodeDokter", '=', "antrian.dokter")
                 ->leftJoin("pasien", "pasien.medrec", '=', "antrian.medrec")
-                ->whereBetween("antrian.created_at", [$this->dateFrom, $this->dateTo])
+                ->where("dokter.namaDokter", "like", "%".$this->name."%")
                 ->get();
 
-            return view('exports.periode', ["data" => $data]);
+            return view('exports.dokter', ["data" => $data]);
         }
         else {  
             $data = DB::table("antrian")
@@ -38,7 +37,7 @@ class LaporanExport implements FromView
                 ->leftJoin("pasien", "pasien.medrec", '=', "antrian.medrec")
                 ->get();
 
-            return view('exports.periode', ["data" => $data]);
+            return view('exports.dokter', ["data" => $data]);
         }
     }
 }

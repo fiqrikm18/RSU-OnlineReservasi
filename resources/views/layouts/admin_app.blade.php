@@ -58,10 +58,10 @@
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" href="{{ route('laporan_periode') }}">Laporan Periode</a>
-                                <a class="dropdown-item" href="#">Laporan Pasien</a>
-                                <a class="dropdown-item" href="#">Laporan Dokter</a>
-                                <a class="dropdown-item" href="#">Laporan Poliklinik</a>
-                                <a class="dropdown-item" href="#">Laporan Penjamin</a>
+                                <a class="dropdown-item" href="{{ route('laporan_pasien') }}">Laporan Pasien</a>
+                                <a class="dropdown-item" href="{{ route('laporan_dokter') }}">Laporan Dokter</a>
+                                <a class="dropdown-item" href="{{ route('laporan_poliklinik') }}">Laporan Poliklinik</a>
+                                <a class="dropdown-item" href="{{ route('laporan_penjamin') }}">Laporan Penjamin</a>
                             </div>
                         </li>
                     </ul>

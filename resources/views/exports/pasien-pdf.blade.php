@@ -17,7 +17,7 @@
 
 </style>
 
-<p style="text-align: center"><strong>Laporan Periode</strong></p>
+<p style="text-align: center"><strong>Laporan Pasien</strong></p>
 <p style="text-align: center"><strong>Rumah Sakit Muhammadiyah Bandung</strong></p>
 <p style="text-align: center">Jl.KH.Ahmad Dahlan No.53 Bandung</p><hr/>
 
@@ -26,10 +26,10 @@
         <thead>
             <tr>
                 <th style="text-align:center; width: 50px">No.</th>
-                <th style="text-align:center; width: 120px">Tanggal</th>
                 <th style="text-align:center; width: 150px">Nama Pasien</th>
                 <th style="text-align:center; width: 100px">Poliklinik</th>
                 <th style="text-align:center; width: 150px">Nama Dokter</th>
+                <th style="text-align:center; width: 120px">Tanggal</th>
                 <th style="text-align:center; width: 100px">Penjamin</th>
             </tr>
         </thead>
@@ -38,10 +38,10 @@
             @foreach ($data as $index=>$a)
             <tr>
                 <td style="text-align:center">{{$index+1}}</td>
-                <td style="text-align:center">{{Carbon::parse($a->tanggalKunjungan)->format("d M Y")}}</td>
                 <td style="text-align:center">{{$a->nama}}</td>
                 <td style="text-align:center">{{$a->namaPoli}}</td>
                 <td style="text-align:center">dr. {{$a->namaDokter}}</td>
+                <td style="text-align:center">{{Carbon::parse($a->tanggalKunjungan)->format("d M Y")}}</td>
                 <td style="text-align:center">{{$a->penjamin}}</td>
             </tr>
             @endforeach
