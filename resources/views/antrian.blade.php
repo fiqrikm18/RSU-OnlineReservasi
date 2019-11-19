@@ -5,7 +5,12 @@ Daftar Antrian
 @endsection
 
 @section("content")
-<div class="container" id="register-div">
+<div class="container" style="width: 850px">
+    @if(\Session::has("messages"))
+    <div class="alert alert-success alert-dismissible">
+        {!! \Session::get('messages') !!}
+    </div>
+    @endif
     <div class="card">
         <div class="card-body">
         <div class="d-flex">
@@ -14,21 +19,21 @@ Daftar Antrian
         <br/>
         <h4 style="text-align:center">Daftar Antrian Pasien</h4>
         <br/>
-        <table class="table table-striped">
+        <table id="dtOrderExample" class="table table-striped">
           <thead>
             <tr>
-              <th scope="col">No. Antrian</th>
-              <th scope="col">Tanggal</th>
-              <th scope="col">Nama Pasien</th>
-              <th scope="col">Poliklinik</th>
-              <th scope="col">Nama Dokter</th>
+              <th class="th-sm" scope="col">No. Antrian</th>
+              <th class="th-sm" scope="col">Tanggal</th>
+              <th class="th-sm" scope="col">Nama Pasien</th>
+              <th class="th-sm" scope="col">Poliklinik</th>
+              <th class="th-sm" scope="col">Nama Dokter</th>
             </tr>
           </thead>
           <tbody>
             @foreach ($antrian as $index=>$a)
                 <tr>
                   <td>{{$index+1}}</td>
-                  <td>{{$a->tanggalKunjungan}}</td>
+                  <td>{{Carbon::parse($a->tanggalKunjungan)->format("d M Y")}}</td>
                   <td>{{$a->nama}}</td>
                   <td>{{$a->namaPoli}}</td>
                   <td>dr. {{$a->namaDokter}}</td>
@@ -48,4 +53,13 @@ Daftar Antrian
     <script>
     </script>
 </div>
+
+<script>
+$(document).ready(function () {
+$('#dtOrderExample').DataTable({
+"order": [[ 3, "desc" ]]
+});
+$('.dataTables_length').addClass('bs-select');
+});
+</script>
 @endsection

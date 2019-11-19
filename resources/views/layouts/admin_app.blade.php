@@ -57,7 +57,7 @@
                                 Laporan
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="#">Laporan Periode</a>
+                                <a class="dropdown-item" href="{{ route('laporan_periode') }}">Laporan Periode</a>
                                 <a class="dropdown-item" href="#">Laporan Pasien</a>
                                 <a class="dropdown-item" href="#">Laporan Dokter</a>
                                 <a class="dropdown-item" href="#">Laporan Poliklinik</a>

@@ -52,3 +52,17 @@ Route::get("/jadwal-dokter", "PublicController@jadwal")->name("jadwal");
 Route::get("/antrian", "PublicController@antrian")->name("antrian");
 Route::get("/daftar-antrian", "PublicController@registerAntrian")->name("daftarAntri");
 Route::post("/daftar-antrian", "PublicController@storeAntrian")->name("store.antrian");
+
+// admin laporan
+Route::get("/admin/laporan/periode/", "AdminController@laporanPeriode")->name("laporan_periode");
+Route::get("/admin/laporan/periode/cari", "AdminController@periodeSrc")->name("laporan_periode_cari");
+
+Route::get("/admin/laporan/pasien/", "AdminController@laporanPasien")->name("laporan_pasien");
+Route::get("/admin/laporan/pasien/cari", "AdminController@pasienSrc")->name("laporan_pasien_cari");
+
+// export
+Route::get("/export/laporan/periode/excel", "AdminController@exportLaporanPeriode")->name("export_perioder_excel");
+Route::get("/export/laporan/periode/pdf", "AdminController@exportLaporanPeriodePDF")->name("export_perioder_pdf");
+
+Route::get("/export/laporan/pasien/excel", "AdminController@exportLaporanPasien")->name("export_paien_excel");
+Route::get("/export/laporan/pasien/pdf", "AdminController@exportLaporanPasienPDF")->name("export_paien_pdf");
