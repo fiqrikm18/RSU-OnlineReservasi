@@ -84,3 +84,10 @@ Route::get("/export/laporan/poliklinik/pdf", "AdminController@exportLaporanPolik
 
 Route::get("/export/laporan/penjamin/excel", "AdminController@exportLaporanPenjamin")->name("export_penjamin_excel");
 Route::get("/export/laporan/penjamin/pdf", "AdminController@exportLaporanPenjaminPDF")->name("export_penjamin_pdf");
+
+// print
+Route::get("/export/laporan/periode/print", "AdminController@printLaporanPeriode")->name("export_perioder_print");
+Route::get("/export/laporan/pasien/print", "AdminController@printLaporanPasien")->name("export_pasien_print");
+Route::get("/export/laporan/dokter/print", "AdminController@printLaporanDokter")->name("export_dokter_print");
+Route::get("/export/laporan/poliklinik/print", "AdminController@printLaporanPoliklinik")->name("export_poliklinik_print");
+Route::get("/export/laporan/penjamin/print", "AdminController@printLaporanPenjamin")->name("export_penjamin_print");

@@ -27,7 +27,7 @@ Laporan Periode
                 <div class="justify-content-right">
                     <a href="{{ route('export_perioder_excel')."?dateFrom=".Request::get("dateFrom")."&dateTo=".Request::get("dateTo") }}" class="btn btn-outline-secondary" style="margin-right: 3px">Excel</a>
                     <a href="{{ route('export_perioder_pdf')."?dateFrom=".Request::get("dateFrom")."&dateTo=".Request::get("dateTo") }}" class="btn btn-outline-secondary" style="margin-right: 3px">PDF</a>
-                    <a href="#" class="btn btn-outline-secondary" style="margin-right: 3px">Print</a>
+                    <a href="{{ route('export_perioder_print')."?dateFrom=".Request::get("dateFrom")."&dateTo=".Request::get("dateTo") }} " class="btn btn-outline-secondary" style="margin-right: 3px">Print</a>
                 </div><br /><br /><br />
             </form>
 

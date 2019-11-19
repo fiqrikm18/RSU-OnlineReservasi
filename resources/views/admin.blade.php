@@ -5,5 +5,7 @@ Hello, {{ Auth::user()->username }}
 @endsection
 
 @section("content")
-index admin
+<div class="container">
+    <img src="{{ url('image/rsmb.png') }}" alt="rsmb" style="width: 100%;">
+</div>
 @endsection

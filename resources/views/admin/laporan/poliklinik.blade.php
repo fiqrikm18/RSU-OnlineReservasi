@@ -24,7 +24,7 @@ Laporan Poliklinik
                 <div class="justify-content-right">
                     <a href="{{ route('export_poliklinik_excel')."?poli=".Request::get("poli") }}" class="btn btn-outline-secondary" style="margin-right: 3px">Excel</a>
                     <a href="{{ route('export_poliklinik_pdf')."?poli=".Request::get("poli") }}" class="btn btn-outline-secondary" style="margin-right: 3px">PDF</a>
-                    <a href="#" class="btn btn-outline-secondary" style="margin-right: 3px">Print</a>
+                    <a href="{{ route('export_poliklinik_print')."?poli=".Request::get("poli") }}" class="btn btn-outline-secondary" style="margin-right: 3px">Print</a>
                 </div><br /><br /><br />
             </form>
 

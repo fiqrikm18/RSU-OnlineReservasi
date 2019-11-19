@@ -273,4 +273,119 @@ class AdminController extends Controller
             return $pdf->download("Laporan_Penjamin-".Carbon::now()->format("d-M-Y").".pdf");
         }
     }
+
+    public function printLaporanPeriode(Request $request)
+    {
+        if($request->dateFrom != null && $request->dateTo != null) {
+            $data = DB::table("antrian")
+                ->leftJoin("poliklinik", "poliklinik.noPoli", '=', "antrian.poli")
+                ->leftJoin("dokter", "dokter.kodeDokter", '=', "antrian.dokter")
+                ->leftJoin("pasien", "pasien.medrec", '=', "antrian.medrec")
+                ->whereBetween("antrian.created_at", [$request->dateFrom, $request->dateTo])
+                ->get();
+
+            return view("admin.print.periode-pdf")->with(compact("data"));
+        }
+        else {
+            $data = DB::table("antrian")
+                    ->leftJoin("poliklinik", "poliklinik.noPoli", '=', "antrian.poli")
+                    ->leftJoin("dokter", "dokter.kodeDokter", '=', "antrian.dokter")
+                    ->leftJoin("pasien", "pasien.medrec", '=', "antrian.medrec")
+                    ->get();
+
+            return view("admin.print.periode-pdf")->with(compact("data"));
+        }
+    }
+
+    public function printLaporanPasien(Request $request)
+    {
+        if($request->nama != null) {
+            $data = DB::table("antrian")
+                ->leftJoin("poliklinik", "poliklinik.noPoli", '=', "antrian.poli")
+                ->leftJoin("dokter", "dokter.kodeDokter", '=', "antrian.dokter")
+                ->leftJoin("pasien", "pasien.medrec", '=', "antrian.medrec")
+                ->where("nama", "like", "%".$request->nama."%")
+                ->get();
+
+            return view("admin.print.pasien-pdf")->with(compact("data"));
+        }
+        else {
+            $data = DB::table("antrian")
+                    ->leftJoin("poliklinik", "poliklinik.noPoli", '=', "antrian.poli")
+                    ->leftJoin("dokter", "dokter.kodeDokter", '=', "antrian.dokter")
+                    ->leftJoin("pasien", "pasien.medrec", '=', "antrian.medrec")
+                    ->get();
+
+            return view("admin.print.pasien-pdf")->with(compact("data"));
+        }
+    }
+
+    public function printLaporanDokter(Request $request)
+    {
+        if($request->nama != null) {
+            $data = DB::table("antrian")
+                ->leftJoin("poliklinik", "poliklinik.noPoli", '=', "antrian.poli")
+                ->leftJoin("dokter", "dokter.kodeDokter", '=', "antrian.dokter")
+                ->leftJoin("pasien", "pasien.medrec", '=', "antrian.medrec")
+                ->where("namaDokter", "like", "%".$request->nama."%")
+                ->get();
+
+            return view("admin.print.dokter-pdf")->with(compact("data"));
+        }
+        else {
+            $data = DB::table("antrian")
+                    ->leftJoin("poliklinik", "poliklinik.noPoli", '=', "antrian.poli")
+                    ->leftJoin("dokter", "dokter.kodeDokter", '=', "antrian.dokter")
+                    ->leftJoin("pasien", "pasien.medrec", '=', "antrian.medrec")
+                    ->get();
+
+            return view("admin.print.dokter-pdf")->with(compact("data"));
+        }
+    }
+
+    public function printLaporanPoliklinik(Request $request)
+    {
+        if($request->poli != null) {
+            $data = DB::table("antrian")
+                ->leftJoin("poliklinik", "poliklinik.noPoli", '=', "antrian.poli")
+                ->leftJoin("dokter", "dokter.kodeDokter", '=', "antrian.dokter")
+                ->leftJoin("pasien", "pasien.medrec", '=', "antrian.medrec")
+                ->where("namaPoli", "like", "%".$request->poli."%")
+                ->get();
+
+            return view("admin.print.poliklinik-pdf")->with(compact("data"));
+        }
+        else {
+            $data = DB::table("antrian")
+                    ->leftJoin("poliklinik", "poliklinik.noPoli", '=', "antrian.poli")
+                    ->leftJoin("dokter", "dokter.kodeDokter", '=', "antrian.dokter")
+                    ->leftJoin("pasien", "pasien.medrec", '=', "antrian.medrec")
+                    ->get();
+
+            return view("admin.print.poliklinik-pdf")->with(compact("data"));
+        }
+    }
+
+    public function printLaporanPenjamin(Request $request)
+    {
+        if($request->penjamin != null) {
+            $data = DB::table("antrian")
+                ->leftJoin("poliklinik", "poliklinik.noPoli", '=', "antrian.poli")
+                ->leftJoin("dokter", "dokter.kodeDokter", '=', "antrian.dokter")
+                ->leftJoin("pasien", "pasien.medrec", '=', "antrian.medrec")
+                ->where("penjamin", "like", "%".$request->penjamin."%")
+                ->get();
+
+            return view("admin.print.penjamin-pdf")->with(compact("data"));
+        }
+        else {
+            $data = DB::table("antrian")
+                    ->leftJoin("poliklinik", "poliklinik.noPoli", '=', "antrian.poli")
+                    ->leftJoin("dokter", "dokter.kodeDokter", '=', "antrian.dokter")
+                    ->leftJoin("pasien", "pasien.medrec", '=', "antrian.medrec")
+                    ->get();
+
+            return view("admin.print.penjamin-pdf")->with(compact("data"));
+        }
+    }
 }

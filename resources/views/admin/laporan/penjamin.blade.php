@@ -24,7 +24,7 @@ Laporan Penjamin
                 <div class="justify-content-right">
                     <a href="{{ route('export_penjamin_excel')."?penjamin=".Request::get("penjamin") }}" class="btn btn-outline-secondary" style="margin-right: 3px">Excel</a>
                     <a href="{{ route('export_penjamin_pdf')."?penjamin=".Request::get("penjamin") }}" class="btn btn-outline-secondary" style="margin-right: 3px">PDF</a>
-                    <a href="#" class="btn btn-outline-secondary" style="margin-right: 3px">Print</a>
+                    <a href="{{ route('export_penjamin_print')."?penjamin=".Request::get("penjamin") }}" class="btn btn-outline-secondary" style="margin-right: 3px">Print</a>
                 </div><br /><br /><br />
             </form>
 
